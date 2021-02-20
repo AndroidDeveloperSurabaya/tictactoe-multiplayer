@@ -100,13 +100,11 @@ class SelectPlayerActivity : AppCompatActivity() {
     private fun playerStatus(playerSelection: String, player: Player) {
         when (playerSelection) {
             AppConstant.FIRST_PLAYER -> {
-                binding.textFirstPlayer.setText(player.name)
                 binding.textFirstPlayer.isEnabled = !(player.isReady ?: false) && myApp().player == null
                 binding.btnReadyFirstPlayer.isEnabled = !(player.isReady ?: false) && myApp().player == null
             }
 
             AppConstant.SECOND_PLAYER -> {
-                binding.textSecondPlayer.setText(player.name)
                 binding.textSecondPlayer.isEnabled = !(player.isReady ?: false) && myApp().player == null
                 binding.btnReadySecondPlayer.isEnabled = !(player.isReady ?: false) && myApp().player == null
             }
@@ -151,14 +149,12 @@ class SelectPlayerActivity : AppCompatActivity() {
 
             when (playerSelection) {
                 AppConstant.FIRST_PLAYER -> {
-                    player.name = "Player 1"
                     firstPlayerRef.setValue(player)
 
                     binding.btnCancelFirstPlayer.visibility = View.GONE
                 }
 
                 AppConstant.SECOND_PLAYER -> {
-                    player.name = "Player 2"
                     secondPlayerRef.setValue(player)
 
                     binding.btnCancelSecondPlayer.visibility = View.GONE
@@ -167,8 +163,6 @@ class SelectPlayerActivity : AppCompatActivity() {
 
             binding.btnReadyFirstPlayer.isEnabled = true
             binding.btnReadySecondPlayer.isEnabled = true
-            binding.textFirstPlayer.isEnabled = true
-            binding.textSecondPlayer.isEnabled = true
         }
 
         myApp().player = null
